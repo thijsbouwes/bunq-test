@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Acme\Bunqpoly\Bunqpoly;
 use Acme\PriceTracker\PriceTracker;
 use App\Nova\Metrics\NewUsers;
 use Laravel\Nova\Nova;
@@ -69,7 +70,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            new Bunqpoly
+        ];
     }
 
     /**
