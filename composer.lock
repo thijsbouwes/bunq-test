@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "23c60f56012738e218812b85deec3780",
+    "content-hash": "d1cf3b5b70e4bbde2242feac5d5349ac",
     "packages": [
+        {
+            "name": "acme/bunqpoly",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/Bunqpoly",
+                "reference": "9fb1acfe3914484b81dd204d877b7186730054f4",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Acme\\Bunqpoly\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Acme\\Bunqpoly\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
+        },
         {
             "name": "bunq/sdk_php",
             "version": "1.0.0",
