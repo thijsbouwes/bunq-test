@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -13,7 +14,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        BunqConnectionException::class
     ];
 
     /**
@@ -46,6 +47,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof BunqConnectionException) {
+            return $this->badRequest($exception->getMessage());
+        }
+
         return parent::render($request, $exception);
+    }
+
+    /**
+     * @param string $message
+     * @param int $statusCode
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function badRequest($message = 'Bad request', $statusCode=  Response::HTTP_NOT_FOUND)
+    {
+        return response()->json(['message' => $message], $statusCode);
     }
 }

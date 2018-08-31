@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Acme\PriceTracker\PriceTracker;
+use App\Nova\Metrics\NewUsers;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
@@ -56,7 +58,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            (new NewUsers)->width('1/2'),
         ];
     }
 
