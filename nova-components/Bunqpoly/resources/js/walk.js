@@ -1,6 +1,7 @@
 $(function(){
     //dice_initialize(document.body);
 
+
     let board = new Board();
     board.addPlayer(1, 'JG', 11);
     board.addPlayer(2, 'JG', 11);
@@ -9,25 +10,6 @@ $(function(){
     // board.addPlayer(2, 'JG', 11);
 
     board.showMessage('Player  turn!');
-
-    // let counter = 1;
-    // setInterval(function(){
-    //
-    //     for(let i = 0; i < 4;i++)
-    //     {
-    //         let thrown = Math.floor((Math.random() * 6) + 1);
-    //         board.updatePayerLocation(i + 1 , thrown);
-    //     }
-    //
-    //     board.updatePlayerLocations();
-    //     counter++;
-    //     if(counter > 31)
-    //     {
-    //         counter = 0;
-    //     }
-    // }, 1000);
-
-
 });
 
 class Board

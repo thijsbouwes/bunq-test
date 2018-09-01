@@ -1,13 +1,13 @@
 <template>
     <div
-        :class="['card ' + column.classes, {'card--big': big, 'card--small': !big, 'card--small-rotated': cardSmallRotated, 'card--top': cardTop, 'card--rotated-left': cardLeft, 'card--rotated-right': cardRight}]"
+        :class="['property ' + column.classes, {'property--big': big, 'property--small': !big, 'property--small-rotated': propertySmallRotated, 'property--top': propertyTop, 'property--rotated-left': propertyLeft, 'property--rotated-right': propertyRight}]"
     >
         <div
             v-if="!big"
-            :class="['card__header card__header--' + column.color, {'card__header--rotated': cardSmallRotated}]"
+            :class="['property__header property__header--' + column.color, {'property__header--rotated': propertySmallRotated}]"
         ></div>
-        <div :class="['card__content ' + column.border]" >
-            <div class="card__svg">
+        <div :class="['property__content ' + column.border]" >
+            <div class="property__svg">
                 <!--<span>{{ column.index }}</span>-->
                 <img :src="`/images/game/${column.index}.png`">
             </div>
@@ -22,16 +22,16 @@
             big() {
                 return this.column.size == 'big';
             },
-            cardSmallRotated() {
+            propertySmallRotated() {
                 return this.rowIndex == 1 || this.rowIndex == 2;
             },
-            cardTop() {
+            propertyTop() {
                 return this.rowIndex == 0;
             },
-            cardLeft() {
+            propertyLeft() {
                 return this.rowIndex == 1;
             },
-            cardRight() {
+            propertyRight() {
                 return this.rowIndex == 2;
             }
         }

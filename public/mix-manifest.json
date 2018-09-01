@@ -1,9 +1,14 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css"
 =======
     "/js/app.js": "/js/app.js?id=473525121d325f389d5d",
     "/css/app.css": "/css/app.css?id=f845a88b71cf3a46376a"
+>>>>>>> jeroen
+=======
+    "/js/app.js": "/js/app.js?id=99f5671f21663c7db453",
+    "/css/app.css": "/css/app.css?id=89cac9e0954389774ac0"
 >>>>>>> jeroen
 }
