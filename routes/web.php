@@ -23,3 +23,7 @@ Route::get('/bunqpoly/login', function () {
 Route::get('/game', function () {
     return view('dice');
 });
+
+Route::get('/test', function() {
+    dd(config('bunqpoly.cards'));
+});

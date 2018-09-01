@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Acme\Bunqpoly\Http\Controllers\GamesController;
+use Acme\Bunqpoly\Http\Controllers\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,4 @@ Route::get('/games/{game}', GamesController::class.'@show');
 Route::post('/games/{game}/join', GamesController::class.'@join');
 Route::post('/games/{game}/start', GamesController::class.'@start');
 
-//Route::
+Route::get('/properties', PropertyController::class.'@index');
