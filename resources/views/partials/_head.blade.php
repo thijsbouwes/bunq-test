@@ -8,3 +8,5 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+
+<link rel="shortcut icon" href="/images/favicon.png" type="image/png">

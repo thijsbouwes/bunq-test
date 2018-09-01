@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Acme\Bunqpoly\Http\Controllers\GamesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/endpoint', function (Request $request) {
-//     //
-// });
+Route::get('/games', GamesController::class.'@index');
+Route::post('/games', GamesController::class.'@store');
+Route::get('/games/{game}', GamesController::class.'@show');
+Route::post('/games/{game}/join', GamesController::class.'@join');
+
+//Route::

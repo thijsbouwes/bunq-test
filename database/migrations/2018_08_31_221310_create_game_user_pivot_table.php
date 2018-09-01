@@ -17,9 +17,11 @@ class CreateGameUserPivotTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('game_id');
+            $table->integer('payment_reference')->nullable();
+            $table->enum('payment_status', ['pending', 'rejected', 'accepted'])->default('pending');
 
             $table->timestamps();
-            
+
             $table
                 ->foreign('user_id')
                 ->references('id')

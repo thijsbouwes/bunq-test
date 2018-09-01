@@ -5,19 +5,19 @@ namespace App\Nova;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Game extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\Game';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -32,7 +32,8 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
+        'name'
     ];
 
     /**
@@ -46,24 +47,20 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
+            Number::make('price')
+                ->min(0)
+                ->max(100)
+                ->step(0.01),
+
+            Status::make('Status')
+                ->loadingWhen(['pending', 'running'])
+                ->failedWhen(['canceled']),
 
             Text::make('Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:255')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:6')
-                ->updateRules('nullable', 'string', 'min:6'),
-
-            BelongsToMany::make('Games')
+//            BelongsToMany::make('Users')
         ];
     }
 
@@ -109,17 +106,5 @@ class User extends Resource
     public function actions(Request $request)
     {
         return [];
-    }
-
-    /**
-     * Build an "index" query for the given resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public static function indexQuery(NovaRequest $request, $query)
-    {
-        return $query->where('id', $request->user()->id);
     }
 }

@@ -33,5 +33,12 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'bunq' => [
+        'token' => env('BUNQ_TOKEN', 'Laravel'),
+        'path' => storage_path('bunq') . '/bunq.conf',
+        'main_account' => env('BUNQ_MAIN'),
+        'callback_uri' => env('BUNQ_CALLBACK_URI')
     ]
 ];

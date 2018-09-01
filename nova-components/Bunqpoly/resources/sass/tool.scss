@@ -1,1 +1,7 @@
 // Nova Tool CSS
+.w-sidebar .list-reset,
+.w-sidebar h3:nth-child(3),
+.content > .h-header > a.dim,
+.content > .h-header > a.dim + .z-50 {
+    display: none;
+}

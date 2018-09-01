@@ -6,5 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
+    protected $with = [
+        'users'
+    ];
+
+    protected $fillable = [
+        'name',
+        'price'
+    ];
+
     //
+    public function users()
+    {
+        return $this->belongsToMany(User::class)
+            ->withPivot(['payment_reference', 'payment_status']);
+    }
 }

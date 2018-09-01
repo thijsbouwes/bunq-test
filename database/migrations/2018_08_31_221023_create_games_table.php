@@ -17,7 +17,7 @@ class CreateGamesTable extends Migration
             $table->increments('id');
             $table->text('name');
             $table->decimal('price', 10, 2);
-            $table->enum('status', ['pending', 'playing', 'canceled', 'finished']);
+            $table->enum('status', ['pending', 'playing', 'canceled', 'finished'])->default('pending');
             $table->timestamps();
         });
     }
