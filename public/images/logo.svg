@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 332 82">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #18834d;
+        font-size: 67px;
+        font-family: Montserrat-SemiBold, Montserrat;
+        font-weight: 600;
+      }
+
+      .cls-2 {
+        fill: #6fbe53;
+      }
+
+      .cls-3 {
+        fill: #1cb8ad;
+      }
+
+      .cls-4 {
+        fill: #0074b8;
+      }
+
+      .cls-5 {
+        fill: #9e3034;
+      }
+
+      .cls-6 {
+        fill: #f72a2a;
+      }
+
+      .cls-7 {
+        fill: #ff8733;
+      }
+
+      .cls-8 {
+        fill: #ffca4a;
+      }
+    </style>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-123 -35)">
+    <text id="bunqpoly" class="cls-1" transform="translate(123 100)"><tspan x="0" y="0">b</tspan><tspan class="cls-2" y="0">u</tspan><tspan class="cls-3" y="0">n</tspan><tspan class="cls-4" y="0">q</tspan><tspan class="cls-5" y="0">p</tspan><tspan class="cls-6" y="0">o</tspan><tspan class="cls-7" y="0">l</tspan><tspan class="cls-8" y="0">y</tspan></text>
+  </g>
+</svg>

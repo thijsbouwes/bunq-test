@@ -10,21 +10,33 @@
 	{
 		width: $card-small-width;
 		height: $card-small-height;
+
+		#{$g}__svg
+		{
+			svg
+			{
+				width: $card-small-width;
+			}
+
+			text
+			{
+				fill: black;
+			}
+		}
+
+		#{$g}__player-wrapper
+		{
+			flex-direction: column;
+		}
 	}
 
 	&__content
 	{
-		border-right: 2px solid $bunq-color-gray;
+		position: relative;
 		flex:1;
-	}
-
-	&__name
-	{
-		height: $card-header-height;
-		line-height: $card-header-height;
-		display:block;
-		text-align: center;
-		width: $card-small-width;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	&--small-rotated
@@ -32,10 +44,11 @@
 		width: $card-small-height;
 		height: $card-small-width;
 
-		#{$g}__content
-		{
-			border-right: 0;
-			border-top: 2px solid $bunq-color-gray;
+		#{$g}__svg {
+			svg {
+				width: auto;
+				height: $card-small-width;
+			}
 		}
 	}
 
@@ -43,17 +56,71 @@
 	{
 		width: $card-big-width;
 		height: $card-small-height;
+
+		#{$g}__svg
+		{
+			svg
+			{
+				width: $card-big-width;
+				height: $card-big-width;
+			}
+		}
+
+		&:after
+		{
+			position: absolute;
+			content: '';
+			height: $card-header-height;
+			width: $card-header-height;
+			background-color: $bunq-color-gray;
+		}
+
+		&-tl:after
+		{
+			border-top-left-radius: 1rem;
+			bottom:0;
+			right: 0;
+		}
+		&-tr:after
+		{
+			border-top-right-radius: 1rem;
+			bottom:0;
+			left: 0;
+		}
+		&-bl:after
+		{
+			border-bottom-left-radius: 1rem;
+			top:0;
+			right: 0;
+		}
+		&-br:after
+		{
+			border-bottom-right-radius: 1rem;
+			top:0;
+			left: 0;
+		}
 	}
 
 	&__header
 	{
 		width: 100%;
 		height: $card-header-height;
+		min-height: $card-header-height;
+		max-height: $card-header-height;
+
+		&--none
+		{
+			display:none;
+		}
 
 		&--rotated
 		{
 			width: $card-header-height;
 			height: $card-small-height;
+			min-width: $card-header-height;
+			max-width: $card-header-height;
+			min-height: unset;
+			max-height: unset;
 			position: relative;
 
 			.card__name {
@@ -90,14 +157,6 @@
 	&--rotated-right
 	{
 		flex-direction: row;
-
-		#{$g}__name
-		{
-			position: absolute;
-			transform: rotate(-90deg);
-			left: 8px;
-			top: 35px;
-		}
 	}
 
 	&--rotated-left
@@ -110,13 +169,70 @@
 			display: flex;
 			flex-direction: row-reverse;
 		}
+	}
 
-		#{$g}__name
+
+	.b-left
+	{
+		border-left: 2px solid $bunq-color-gray;
+	}
+	.b-right
+	{
+		border-right: 2px solid $bunq-color-gray;
+	}
+	.b-top
+	{
+		border-top: 2px solid $bunq-color-gray;
+	}
+	.b-bottom
+	{
+		border-bottom: 2px solid $bunq-color-gray;
+	}
+
+	&__player-wrapper
+	{
+		position: absolute;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__player-icon
+	{
+		box-shadow: 2px 2px 10px -3px #000;
+		z-index: 9999;
+		width: $card-player-icon-width;
+		min-width: $card-player-icon-width;
+		max-width: $card-player-icon-width;
+		height: $card-player-icon-width;
+		min-height: $card-player-icon-width;
+		max-height: $card-player-icon-width;
+		border-radius: 100%;
+		border:2px solid $bunq-color-gray;
+
+		display:flex;
+		justify-content: center;
+		align-items: center;
+
+		span
 		{
-			position: relative;
-			transform: rotate(90deg);
-			left: 32px;
-			top: 35px;
+			color:white;
+			font-family: 'Montserrat', Arial, sans-serif;
+			font-weight: 600;
+			text-transform: uppercase;
+			font-size:16px;
+		}
+
+		@each $color, $hex in $bunq-colors {
+			&--#{$color}
+			{
+				background-color: $hex;
+			}
+			&--none
+			{
+				background-color: white;
+			}
 		}
 	}
+
 }
