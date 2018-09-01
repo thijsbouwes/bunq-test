@@ -32,6 +32,8 @@ $(function(){
     board.addPlayer(4, 'JG', 11);
     // board.addPlayer(2, 'JG', 11);
 
+    board.showMessage('The game has started!');
+
     // let counter = 1;
     // setInterval(function(){
     //
@@ -59,6 +61,21 @@ class Board
         this.$board = $('#board');
         this.playerWidth = 40;
         this.players = [];
+    }
+
+    showMessage(message)
+    {
+        let $message = $('<div class="board__message"><span>'+message+'</span></div>');
+        this.$board.append($message);
+        $message.find('span').animate({
+            top: (this.$board.height() / 2) - ($message.find('span').height() / 2) + 'px'
+        }, 500, function(){
+            setTimeout(function(){
+                $message.find('span').animate({
+                    top: '-200px'
+                }, 500);
+            }, 1500);
+        })
     }
 
     setPlayerCard(id, cardIndex)

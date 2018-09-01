@@ -10559,6 +10559,30 @@ a.text-dark:focus {
   width: 170px;
 }
 
+.board__message {
+  z-index: 99999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.board__message span {
+  top: -200px;
+  position: absolute;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 1rem;
+}
+
 .board__player-icon {
   position: absolute;
   -webkit-box-shadow: 2px 2px 10px -3px #000;
