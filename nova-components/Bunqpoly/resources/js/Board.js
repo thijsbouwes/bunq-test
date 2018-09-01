@@ -1,20 +1,5 @@
-$(function(){
-    //dice_initialize(document.body);
-
-
-    let board = new Board();
-    board.addPlayer(1, 'JG', 11);
-    board.addPlayer(2, 'JG', 11);
-    board.addPlayer(3, 'JG', 11);
-    board.addPlayer(4, 'JG', 11);
-    // board.addPlayer(2, 'JG', 11);
-
-    board.showMessage('Player  turn!');
-});
-
-class Board
-{
-    constructor()
+class Board {
+    init()
     {
         this.$board = $('#board');
         this.playerWidth = 40;
@@ -155,5 +140,6 @@ class Board
             }
         }
     }
-
 }
+
+export default new Board();

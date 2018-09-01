@@ -98,6 +98,7 @@
 
 <script>
     import Card from "./Card";
+    import Board from "../Board";
 
     export default {
         components: {Card},
@@ -139,7 +140,15 @@
                     console.log(event.game);
                 });
 
+            // start dice
             dice_initialize(document.body);
+
+            Board.init();
+            Board.addPlayer(1, 'JG', 11);
+            Board.addPlayer(2, 'JG', 11);
+            Board.addPlayer(3, 'JG', 11);
+            Board.addPlayer(4, 'JG', 11);
+            Board.showMessage('Player  turn!');
         },
 
         methods: {
