@@ -1,13 +1,12 @@
 <template>
     <div
-        class="card"
-        :class="{'card--big': big, 'card--small': !big, 'card--small-rotated': cardSmallRotated, 'card--top': cardTop, 'card--rotated-left': cardLeft, 'card--rotated-right': cardRight}"
+        :class="['card ' + column.classes, {'card--big': big, 'card--small': !big, 'card--small-rotated': cardSmallRotated, 'card--top': cardTop, 'card--rotated-left': cardLeft, 'card--rotated-right': cardRight}]"
     >
         <div
-            class="card__header"
-            :class="{'card__header--rotated': big, }"
+            v-if="big"
+            :class="['card__header card__header--' + column.color, {'card__header--rotated': big}]"
         >
-            <div class="card__content" v-if="big">
+            <div :class="['card__content ' + column.border]" >
                 <div class="card__player-wrapper" v-if="column.index == 1">
                     <div class="card__player-icon card__player-icon--green">
                         <span>JG</span>
@@ -26,11 +25,10 @@
                     <!--@include('svg/card/'.$card['index'], ['name' => $card['name'], 'city' => $card['city'], 'price' => $card['price']])-->
                 </div>
             </div>
-
-            <div class="card__content" v-else>
-                <div class="card__svg">
-                    @include('svg/card/'.$card['index'])
-                </div>
+        </div>
+        <div class="card__content" v-else>
+            <div class="card__svg">
+                <!--@include('svg/card/'.$card['index'])-->
             </div>
         </div>
     </div>
