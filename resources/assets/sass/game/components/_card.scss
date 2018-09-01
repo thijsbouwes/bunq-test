@@ -1,0 +1,122 @@
+.card
+{
+	$g: &;
+	float:left;
+	border-radius: 0;
+	border: 0;
+	display:flex;
+
+	&--small
+	{
+		width: $card-small-width;
+		height: $card-small-height;
+	}
+
+	&__content
+	{
+		border-right: 2px solid $bunq-color-gray;
+		flex:1;
+	}
+
+	&__name
+	{
+		height: $card-header-height;
+		line-height: $card-header-height;
+		display:block;
+		text-align: center;
+		width: $card-small-width;
+	}
+
+	&--small-rotated
+	{
+		width: $card-small-height;
+		height: $card-small-width;
+
+		#{$g}__content
+		{
+			border-right: 0;
+			border-top: 2px solid $bunq-color-gray;
+		}
+	}
+
+	&--big
+	{
+		width: $card-big-width;
+		height: $card-small-height;
+	}
+
+	&__header
+	{
+		width: 100%;
+		height: $card-header-height;
+
+		&--rotated
+		{
+			width: $card-header-height;
+			height: $card-small-height;
+			position: relative;
+
+			.card__name {
+				display: block;
+				position: absolute;
+				width: $card-small-width;
+			}
+		}
+
+
+		@each $color, $hex in $bunq-colors {
+			&--#{$color}
+			{
+				background-color: $hex;
+			}
+			&--none
+			{
+				background-color: white;
+			}
+		}
+	}
+
+	&--top
+	{
+		flex-direction: column-reverse;
+
+		#{$g}__content
+		{
+			display: flex;
+			flex-direction: column-reverse;
+		}
+	}
+
+	&--rotated-right
+	{
+		flex-direction: row;
+
+		#{$g}__name
+		{
+			position: absolute;
+			transform: rotate(-90deg);
+			left: 8px;
+			top: 35px;
+		}
+	}
+
+	&--rotated-left
+	{
+		display: flex;
+		flex-direction: row-reverse;
+
+		#{$g}__content
+		{
+			display: flex;
+			flex-direction: row-reverse;
+		}
+
+		#{$g}__name
+		{
+			position: relative;
+			transform: rotate(90deg);
+			left: 32px;
+			top: 35px;
+		}
+	}
+}
