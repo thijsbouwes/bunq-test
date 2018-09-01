@@ -5,7 +5,7 @@
     </head>
     <body>
     <div class="board-wrapper">
-        <div class="board">
+        <div class="board" id="board">
             @foreach(\Illuminate\Support\Facades\Config::get('bunqpoly.cards.rows') as $index => $row)
 
                 @if($index === 0)

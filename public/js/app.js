@@ -47307,6 +47307,9 @@ module.exports = function(module) {
 /***/ "./resources/assets/js/app.js":
 /***/ (function(module, exports, __webpack_require__) {
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -47327,12 +47330,158 @@ window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 Vue.component('example-component', __webpack_require__("./resources/assets/js/components/ExampleComponent.vue"));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
 
 $(function () {
-  dice_initialize(document.body);
+    //dice_initialize(document.body);
+
+
+    var board = new Board();
+    board.addPlayer(1, 'JG', 11);
+    board.addPlayer(2, 'JG', 11);
+    board.addPlayer(3, 'JG', 11);
+    board.addPlayer(4, 'JG', 11);
+    // board.addPlayer(2, 'JG', 11);
+
+    // let counter = 1;
+    // setInterval(function(){
+    //
+    //     for(let i = 0; i < 4;i++)
+    //     {
+    //         let thrown = Math.floor((Math.random() * 6) + 1);
+    //         board.updatePayerLocation(i + 1 , thrown);
+    //     }
+    //
+    //     board.updatePlayerLocations();
+    //     counter++;
+    //     if(counter > 31)
+    //     {
+    //         counter = 0;
+    //     }
+    // }, 1000);
+
 });
+
+var Board = function () {
+    function Board() {
+        _classCallCheck(this, Board);
+
+        this.$board = $('#board');
+        this.playerWidth = 40;
+        this.players = [];
+    }
+
+    _createClass(Board, [{
+        key: 'setPlayerCard',
+        value: function setPlayerCard(id, cardIndex) {
+            this.players[id].cardIndex = cardIndex;
+        }
+    }, {
+        key: 'addPlayer',
+        value: function addPlayer(id, name, cardIndex) {
+            this.players[id] = {
+                name: name,
+                cardIndex: cardIndex,
+                element: $('<div class="board__player-icon board__player-icon--blue"><span>' + name + '</span></div>')
+            };
+
+            var $player = this.players[id].element;
+            this.$board.append($player);
+
+            this.updatePlayerLocations();
+        }
+    }, {
+        key: 'updatePayerLocation',
+        value: function updatePayerLocation(id, thrown) {
+            var player = this.players[id];
+
+            var newCardIndex = player.cardIndex + thrown;
+            if (newCardIndex > 31) {
+                player.cardIndex = newCardIndex % 31;
+            } else {
+                player.cardIndex = newCardIndex;
+            }
+        }
+    }, {
+        key: 'updatePlayerLocations',
+        value: function updatePlayerLocations() {
+            var playersOnCard = {};
+            for (var key in this.players) {
+                var player = this.players[key];
+                if (player.cardIndex in playersOnCard === false) {
+                    playersOnCard[player.cardIndex] = [];
+                }
+                playersOnCard[player.cardIndex].push(player);
+            }
+
+            for (var card in playersOnCard) {
+                var $card = this.$board.find('.card[data-index=' + card + ']');
+                var players = playersOnCard[card];
+
+                var rotated = $card.hasClass('card--rotated');
+                var left = $card.offset().left - this.$board.offset().left + $card.width() / 2 - this.playerWidth / 2 - 2;
+                var top = $card.offset().top - this.$board.offset().top + $card.height() / 2 - this.playerWidth / 2 - 2;
+                top += $card.hasClass('card--top') ? -20 : 0;
+                left += $card.hasClass('card--rotated-left') ? -20 : 0;
+                left += $card.hasClass('card--rotated-right') ? 20 : 0;
+
+                switch (players.length) {
+                    case 1:
+                        players[0].element.css({
+                            'top': top + 'px',
+                            'left': left + 'px'
+                        });
+                        break;
+                    case 2:
+                        players[0].element.css({
+                            'top': top + (rotated ? 0 : 25) + 'px',
+                            'left': left + (rotated ? 25 : 0) + 'px'
+                        });
+                        players[1].element.css({
+                            'top': top + (rotated ? 0 : -25) + 'px',
+                            'left': left + (rotated ? -25 : 0) + 'px'
+                        });
+                        break;
+                    case 3:
+                        players[0].element.css({
+                            'top': top + 25 + 'px',
+                            'left': left + 25 + 'px'
+                        });
+                        players[1].element.css({
+                            'top': top + 25 + 'px',
+                            'left': left + -25 + 'px'
+                        });
+                        players[2].element.css({
+                            'top': top + -25 + 'px',
+                            'left': left + 25 + 'px'
+                        });
+                        break;
+                    case 4:
+                        players[0].element.css({
+                            'top': top + 25 + 'px',
+                            'left': left + 25 + 'px'
+                        });
+                        players[1].element.css({
+                            'top': top + 25 + 'px',
+                            'left': left + -25 + 'px'
+                        });
+                        players[2].element.css({
+                            'top': top + -25 + 'px',
+                            'left': left + 25 + 'px'
+                        });
+                        players[3].element.css({
+                            'top': top + -25 + 'px',
+                            'left': left + -25 + 'px'
+                        });
+                        break;
+                }
+            }
+        }
+    }]);
+
+    return Board;
+}();
 
 /***/ }),
 

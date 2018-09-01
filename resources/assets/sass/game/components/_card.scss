@@ -184,42 +184,4 @@
 		border-bottom: 2px solid $bunq-color-gray;
 	}
 
-	&__player-icon
-	{
-		box-shadow: 2px 2px 10px -3px #000;
-		z-index: 9999;
-		width: $card-player-icon-width;
-		min-width: $card-player-icon-width;
-		max-width: $card-player-icon-width;
-		height: $card-player-icon-width;
-		min-height: $card-player-icon-width;
-		max-height: $card-player-icon-width;
-		border-radius: 100%;
-		border:2px solid $bunq-color-gray;
-
-		display:flex;
-		justify-content: center;
-		align-items: center;
-
-		span
-		{
-			color:white;
-			font-family: 'Montserrat', Arial, sans-serif;
-			font-weight: 600;
-			text-transform: uppercase;
-			font-size:16px;
-		}
-
-		@each $color, $hex in $bunq-colors {
-			&--#{$color}
-			{
-				background-color: $hex;
-			}
-			&--none
-			{
-				background-color: white;
-			}
-		}
-	}
-
 }

@@ -10546,6 +10546,137 @@ a.text-dark:focus {
   width: 250px;
 }
 
+.board__player-icon {
+  position: absolute;
+  -webkit-box-shadow: 2px 2px 10px -3px #000;
+          box-shadow: 2px 2px 10px -3px #000;
+  z-index: 9999;
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  border-radius: 100%;
+  border: 2px solid #E4E4E4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: left 1s, top 1s;
+  transition: left 1s, top 1s;
+}
+
+.board__player-icon span {
+  margin-top: 1px;
+  color: white;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.board__player-icon--green-dark {
+  background-color: #18834D;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--green {
+  background-color: #23A352;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--green-light {
+  background-color: #6FBE53;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--lime {
+  background-color: #89C564;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--ocean {
+  background-color: #1CB8AD;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--blue-dark {
+  background-color: #0096D3;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--blue {
+  background-color: #0074B8;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--blue-light {
+  background-color: #005D82;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--red-dark {
+  background-color: #9e3034;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--red {
+  background-color: #F72A2A;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--orange {
+  background-color: #FF8733;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
+.board__player-icon--yellow {
+  background-color: #FFCA4A;
+}
+
+.board__player-icon--none {
+  background-color: white;
+}
+
 .card {
   float: left;
   border-radius: 0;
@@ -10818,133 +10949,6 @@ a.text-dark:focus {
 
 .card .b-bottom {
   border-bottom: 2px solid #E4E4E4;
-}
-
-.card__player-icon {
-  -webkit-box-shadow: 2px 2px 10px -3px #000;
-          box-shadow: 2px 2px 10px -3px #000;
-  z-index: 9999;
-  width: 40px;
-  min-width: 40px;
-  max-width: 40px;
-  height: 40px;
-  min-height: 40px;
-  max-height: 40px;
-  border-radius: 100%;
-  border: 2px solid #E4E4E4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.card__player-icon span {
-  color: white;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 16px;
-}
-
-.card__player-icon--green-dark {
-  background-color: #18834D;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--green {
-  background-color: #23A352;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--green-light {
-  background-color: #6FBE53;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--lime {
-  background-color: #89C564;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--ocean {
-  background-color: #1CB8AD;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--blue-dark {
-  background-color: #0096D3;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--blue {
-  background-color: #0074B8;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--blue-light {
-  background-color: #005D82;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--red-dark {
-  background-color: #9e3034;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--red {
-  background-color: #F72A2A;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--orange {
-  background-color: #FF8733;
-}
-
-.card__player-icon--none {
-  background-color: white;
-}
-
-.card__player-icon--yellow {
-  background-color: #FFCA4A;
-}
-
-.card__player-icon--none {
-  background-color: white;
 }
 
 .dice {
