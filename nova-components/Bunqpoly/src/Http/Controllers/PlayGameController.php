@@ -38,4 +38,11 @@ class PlayGameController
 
         return response()->json($data);
     }
+
+    public function turn(Game $game)
+    {
+        $user = $game->getNextUser();
+
+        return response()->json($user);
+    }
 }
