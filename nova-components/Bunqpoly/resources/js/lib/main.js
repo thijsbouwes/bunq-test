@@ -1,8 +1,29 @@
 "use strict";
 
+$(function(){
+    let $deck = $('#chancecards');
+    let $card = $('.flip-container');
+
+    $card.css({
+        'right': '680px',
+        'top': $deck.offset().top - $deck.parent().offset().top - 75,
+        'transform': 'rotate(22deg) scale(.55)'
+    });
+
+    setTimeout(function(){
+        $card.addClass('hover');
+        $card.css({
+            'right': '60px',
+            'top': 'unset',
+            'transform': 'rotate(0deg) scale(1)'
+        });
+
+    }, 1000);
+});
+
 function dice_initialize(container) {
     var canvas = $t.id('dice');
-    canvas.style.width = window.innerWidth - 1 + 'px';
+    //canvas.style.width = window.innerWidth - 1 + 'px';
     canvas.style.height = window.innerHeight - 1 + 'px';
 
     $t.dice.use_true_random = false;
@@ -11,8 +32,8 @@ function dice_initialize(container) {
     box.animate_selector = false;
 
     $t.bind(window, 'resize', function() {
-        canvas.style.width = window.innerWidth - 1 + 'px';
-        canvas.style.height = window.innerHeight - 1 + 'px';
+        //canvas.style.width = window.innerWidth - 1 + 'px';
+        canvas.style.height = $('body').innerHeight - 1 + 'px';
         box.reinit(canvas, { w: window.innerWidth, h: window.innerHeight });
     });
 

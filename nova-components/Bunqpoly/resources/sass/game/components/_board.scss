@@ -50,9 +50,9 @@
 	{
 		align-self: center;
 
-		svg
+		img
 		{
-			width:250px;
+			width:300px;
 		}
 	}
 
@@ -61,13 +61,14 @@
 		transform: rotate(10deg);
 		position: absolute;
 		left: 110px;
-		top: 130px;
+		top: 150px;
 
-		svg
+		img
 		{
 			width: 170px;
 		}
 	}
+
 
 	&__message
 	{

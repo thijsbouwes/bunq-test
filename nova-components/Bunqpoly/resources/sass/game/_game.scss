@@ -3,4 +3,12 @@
 // Components
 @import 'components/board';
 @import 'components/card';
+@import 'components/chancecard';
 @import 'components/dice';
+@import 'components/menu';
+
+
+.dice
+{
+	z-index:9999999;
+}
