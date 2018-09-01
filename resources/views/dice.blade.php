@@ -30,22 +30,6 @@
                                 </div>
 
                                 <div class="card__content {{ (!key_exists('border', $card) || empty($card['border'])) ? '' : implode(' ', $card['border']) }}">
-                                    @if($card['index'] === 1)
-                                        <div class="card__player-wrapper">
-                                            <div class="card__player-icon card__player-icon--green">
-                                                <span>JG</span>
-                                            </div>
-                                            <div class="card__player-icon card__player-icon--blue">
-                                                <span>KR</span>
-                                            </div>
-                                            <div class="card__player-icon card__player-icon--red">
-                                                <span>KR</span>
-                                            </div>
-                                            <div class="card__player-icon card__player-icon--orange">
-                                                <span>KR</span>
-                                            </div>
-                                        </div>
-                                    @endif
                                     <div class="card__svg">
                                         @include('svg/card/'.$card['index'], ['name' => $card['name'], 'city' => $card['city'], 'price' => $card['price']])
                                     </div>

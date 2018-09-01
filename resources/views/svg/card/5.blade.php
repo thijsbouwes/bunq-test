@@ -20,7 +20,7 @@
         </pattern>
     </defs>
     <g id="Tramding" transform="translate(-881 -949)">
-        <text id="Osdorp" class="cls-text-1" transform="translate(935.214 981)"><tspan x="-30.32" y="0">Osdorp</tspan></text>
+        <text id="Osdorp" class="cls-text-1" transform="translate(935.214 981)"><tspan x="-30.32" y="-3">Osdorp</tspan></text>
         <text id="_200_-" data-name="€ 200,-" class="cls-text-1" transform="translate(934.906 1127.987)"><tspan x="-28.992" y="0">&euro; 200,-</tspan></text>
         <path id="Path_1" data-name="Path 1" class="cls-station-2" d="M0,0H110V85.786H0Z" transform="translate(881 996.755)"/>
         <rect id="Rectangle_40" data-name="Rectangle 40" class="cls-rect-3" width="110" height="200" transform="translate(881 949)"/>

@@ -23,11 +23,6 @@
 				fill: black;
 			}
 		}
-
-		#{$g}__player-wrapper
-		{
-			flex-direction: column;
-		}
 	}
 
 	&__content
@@ -187,14 +182,6 @@
 	.b-bottom
 	{
 		border-bottom: 2px solid $bunq-color-gray;
-	}
-
-	&__player-wrapper
-	{
-		position: absolute;
-		display:flex;
-		justify-content: center;
-		align-items: center;
 	}
 
 	&__player-icon
