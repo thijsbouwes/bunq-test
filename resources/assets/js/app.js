@@ -15,3 +15,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 const app = new Vue({
     el: '#app'
 });
+
+$(function(){
+    dice_initialize(document.body);
+});

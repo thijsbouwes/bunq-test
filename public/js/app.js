@@ -15859,6 +15859,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app'
 });
 
+$(function () {
+    dice_initialize(document.body);
+});
+
 /***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -30073,7 +30077,6 @@ window.Popper = __webpack_require__(5).default;
 
 try {
   window.$ = window.jQuery = __webpack_require__(6);
-
   __webpack_require__(22);
 } catch (e) {}
 

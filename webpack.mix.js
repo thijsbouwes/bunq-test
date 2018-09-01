@@ -1,5 +1,5 @@
 let mix = require('laravel-mix');
-
+require('dotenv').config();
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -19,3 +19,4 @@ mix.browserSync(process.env.MIX_APP_URL);
 if (mix.inProduction()) {
     mix.version();
 }
+

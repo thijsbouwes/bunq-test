@@ -1,0 +1,1 @@
+@include('svg/card/templates/house-bottom', ['name' => $name, 'city' => $city, 'price' => $price])

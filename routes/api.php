@@ -16,3 +16,4 @@ use Illuminate\Http\Request;
 Route::post('/bunq/callback', 'Api\\BunqCallback@log');
 Route::get('/bunq/test', 'Api\\BunqCallback@test');
 
+

@@ -11,10 +11,15 @@
 |
 */
 
+
 Auth::routes();
 
 Route::get('/', 'HomeController@show');
 
 Route::get('/bunqpoly/login', function () {
     return redirect('/');
+});
+
+Route::get('/game', function () {
+    return view('dice');
 });
