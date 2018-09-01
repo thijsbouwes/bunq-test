@@ -22,10 +22,13 @@
                     <tr v-for="user in game.users">
                         <td><span class="whitespace-no-wrap text-left">{{ user.id }}</span></td>
                         <td><span class="whitespace-no-wrap text-left">{{ user.name }}</span></td>
-                        <td><div class="flex items-center text-left">{{ user.pivot.payment_status }}</div></td>
+                        <td><div class="flex items-center text-left">
+                            <font-awesome-icon :icon="getIcon(user.pivot.payment_status)" :spin="getIcon(user.pivot.payment_status) === 'spinner'" size="lg"/>
+                        </div></td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </template>
@@ -43,6 +46,7 @@
             }
         },
 
+    // {{ user.pivot.payment_status }}
         computed: {
             usersPayed() {
                 let payedUsers = this.game.users.filter(user => {
@@ -67,7 +71,15 @@
         },
 
         methods: {
-            onSubmit() {
+            getIcon(status) {
+                switch (status) {
+                    case "accepted":
+                        return "check";
+                    case "rejected":
+                        return "times";
+                    default:
+                        return "spinner";
+                }
             }
         },
 
