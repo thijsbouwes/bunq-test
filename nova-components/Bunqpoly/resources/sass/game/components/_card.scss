@@ -9,6 +9,7 @@
 
 	&--small
 	{
+		flex-direction: column;
 		width: $card-small-width;
 		height: $card-small-height;
 

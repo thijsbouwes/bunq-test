@@ -3,9 +3,11 @@ import Pusher from 'pusher-js';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSpinner, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// import SvgIcon from "./components/SvgIcon";
 
 Nova.booting((Vue, router) => {
     Vue.component('font-awesome-icon', FontAwesomeIcon);
+
     library.add(faSpinner, faCheck, faTimes);
 
     window.Echo = new Echo({

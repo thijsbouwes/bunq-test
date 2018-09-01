@@ -1,52 +1,48 @@
 <template>
     <div>
-        <div class="flex justify-between">
-            <div class="relative h-9 mb-6">
-                <heading class="mb-6">{{ this.game.name }} <span class="text-sm">(id: {{ this.game_id }}) ${{ this.game.price }}</span></heading>
-            </div>
-        </div>
-
         <div class="board-wrapper">
             <div class="board">
-
-                    <div class="board__row">
+                <div class="board__row">
+                    <card
+                        v-for="(column, index) in rows[0]"
+                        :data-index="column.index"
+                        :column="column"
+                        :rowIndex="0"
+                        :key="index">
+                    </card>
+                </div>
+                <div class="board__row board__row--big">
+                    <div class="board__col board__col--left">
                         <card
-                            v-for="(column, index) in rows[0]"
+                            v-for="(column, index) in rows[1]"
+                            :data-index="column.index"
                             :column="column"
-                            :rowIndex="0"
+                            :rowIndex="1"
                             :key="index">
                         </card>
                     </div>
-                    <div class="board__row board__row--big">
-                        <div class="board__col board__col--left">
-                            <card
-                                v-for="(column, index) in rows[1]"
-                                :column="column"
-                                :rowIndex="1"
-                                :key="index">
-                            </card>
-                        </div>
-                        <div class="board__col board__col--right">
-                            <div class="board__logo" >
-
-                            </div>
-                            <card
-                                v-for="(column, index) in rows[2]"
-                                :column="column"
-                                :rowIndex="2"
-                                :key="index">
-                            </card>
-                        </div>
+                    <div class="board__logo" >
+                        <img src="/images/game/logo.png">
                     </div>
-                    <div class="board__row">
+                    <div class="board__col board__col--right">
                         <card
-                            v-for="(column, index) in rows[3]"
+                            v-for="(column, index) in rows[2]"
+                            :data-index="column.index"
                             :column="column"
-                            :rowIndex="3"
+                            :rowIndex="2"
                             :key="index">
                         </card>
                     </div>
-
+                </div>
+                <div class="board__row">
+                    <card
+                        v-for="(column, index) in rows[3]"
+                        :data-index="column.index"
+                        :column="column"
+                        :rowIndex="3"
+                        :key="index">
+                    </card>
+                </div>
             </div>
         </div>
 

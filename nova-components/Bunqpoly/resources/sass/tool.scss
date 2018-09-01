@@ -7,5 +7,35 @@
     display: none;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
 @import "variables";
 @import 'game/game';
+
+
+ .cls-rect-1 {
+     fill: none;
+ }
+
+.cls-title-2 {
+    font-size: 50px;
+}
+
+.cls-title-2, .cls-small-text-3 {
+    font-family: Montserrat-SemiBold, Montserrat;
+    font-weight: 600;
+}
+
+.cls-small-text-3 {
+    font-size: 14px;
+}
+
+.cls-image-4 {
+    fill: url(#pattern_start);
+}
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
