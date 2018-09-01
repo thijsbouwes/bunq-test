@@ -24,47 +24,47 @@ function generateCard(int $row, string $type, int $index, $name, $city, string $
 return [
     'cards' => [
         // row 0
-        generateCard(0, 'parking', 16, 'Lottery', '', '', 0, [], 'card--big-tl', 'big'),
+        generateCard(0, 'parking', 16, 'Free Parking', '', '', 0, [], 'property--big-tl', 'big'),
 
-        generateCard(0, 'street', 17, 'Dorpstraat1', 'Ons dorp', 'blue-dark', 60, [$bl, $br]),
-        generateCard(0, 'street', 18, 'Dorpstraat2', 'Ons dorp', 'blue-dark', 60, [$br]),
-        generateCard(0, 'street', 19, 'Dorpstraat3', 'Ons dorp', 'none', 60),
-        generateCard(0, 'street', 20, 'Dorpstraat4', 'Ons dorp', 'red-dark', 60, [$bl, $br]),
-        generateCard(0, 'street', 21, 'Dorpstraat4', 'Ons dorp', 'none', 60),
-        generateCard(0, 'street', 22, 'Dorpstraat5', 'Ons dorp', 'red-dark', 60, [$bl, $br]),
-        generateCard(0, 'street', 23, 'Dorpstraat6', 'Ons dorp', 'red-dark', 60, [$br]),
-        generateCard(0, 'street', 24, 'Dorpstraat7', 'Ons dorp', 'none', 60),
-        generateCard(0, 'street', 25, 'Dorpstraat8', 'Ons dorp', 'orange', 60, [$bl, $br]),
+        generateCard(0, 'street', 17, 'Foam', 'Ons dorp', 'blue-dark', 170, [$bl, $br]),
+        generateCard(0, 'street', 18, 'Madame Tussauds', 'Ons dorp', 'blue-dark', 190, [$br]),
+        generateCard(0, 'chance', 19, 'Chance', 'Ons dorp', 'none'),
+        generateCard(0, 'street', 20, 'Red Light District', 'Ons dorp', 'red-dark', 200, [$bl, $br]),
+        generateCard(0, 'street', 21, 'Schagen', 'Ons dorp', 'none', 200),
+        generateCard(0, 'street', 22, 'The Big Road', 'Ons dorp', 'red-dark', 210, [$bl, $br]),
+        generateCard(0, 'street', 23, 'New West AMS', 'Ons dorp', 'red-dark', 220, [$br]),
+        generateCard(0, 'chance', 24, 'Chance', 'Ons dorp', 'none'),
+        generateCard(0, 'street', 25, 'Groenveld Street', 'Ons dorp', 'orange', 220, [$bl, $br]),
 
-        generateCard(0, 'go_prison', 26, 'Prison', '', '', 0, [], 'card--big-tr', 'big'),
+        generateCard(0, 'go_prison', 26, 'Prison', '', '', 0, [], 'property--big-tr', 'big'),
 
         // row 1
-        generateCard(1, 'street', 15, 'Dorpstraat9', 'Ons dorp', 'blue', 60, [$bt, $bb]),
-        generateCard(1, 'street', 14, 'Dorpstraat10', 'Ons dorp', 'blue', 60, [$bb]),
-        generateCard(1, 'street', 13, 'Dorpstraat11', 'Ons dorp', 'none', 60),
-        generateCard(1, 'street', 12, 'Dorpstraat12', 'Ons dorp', 'ocean', 60, [$bt, $bb]),
-        generateCard(1, 'street', 11, 'Dorpstraat13', 'Ons dorp', 'ocean', 60, [$bb]),
+        generateCard(1, 'street', 15, 'Waalse Church', 'Ons dorp', 'blue', 170, [$bt, $bb]),
+        generateCard(1, 'street', 14, 'Southern Church', 'Ons dorp', 'blue', 170, [$bb]),
+        generateCard(1, 'street', 13, 'Diemen', 'Ons dorp', 'none', 200),
+        generateCard(1, 'street', 12, 'Amstel Park', 'Ons dorp', 'ocean', 150, [$bt, $bb]),
+        generateCard(1, 'street', 11, 'Ooster Park', 'Ons dorp', 'ocean', 130, [$bb]),
 
         // row 2
-        generateCard(2, 'street', 27, 'Dorpstraat14', 'Ons dorp', 'orange', 60, [$bt, $bb]),
-        generateCard(2, 'street', 28, 'Dorpstraat15', 'Ons dorp', 'orange', 60, [$bb]),
-        generateCard(2, 'street', 29, 'Dorpstraat16', 'Ons dorp', 'none', 60),
-        generateCard(2, 'street', 30, 'Dorpstraat17', 'Ons dorp', 'yellow', 60, [$bt, $bb]),
-        generateCard(2, 'street', 31, 'Dorpstraat18', 'Ons dorp', 'yellow', 60, [$bb]),
+        generateCard(2, 'street', 27, 'Bouwes Road', 'Ons dorp', 'orange', 240, [$bt, $bb]),
+        generateCard(2, 'street', 28, 'Ruiter Lane', 'Ons dorp', 'orange', 300, [$bb]),
+        generateCard(2, 'street', 29, 'Bergen', 'Ons dorp', 'none', 200),
+        generateCard(2, 'street', 30, 'Natria Street', 'Ons dorp', 'yellow', 350, [$bt, $bb]),
+        generateCard(2, 'street', 31, 'Ali Niknam', 'Ons dorp', 'yellow', 400, [$bb]),
 
         // row 3
-        generateCard(3, 'prison', 10, 'Prison', '', '', 0, [], 'card--big-bl', 'big'),
+        generateCard(3, 'prison', 10, 'Prison', '', '', 0, [], 'property--big-bl', 'big'),
 
-        generateCard(3, 'street', 9, 'Dorpstraat19', 'Ons dorp', 'ocean', 60, [$bl, $br]),
-        generateCard(3, 'street', 8, 'Dorpstraat20', 'Ons dorp', 'none', 60),
-        generateCard(3, 'street', 7, 'Dorpstraat21', 'Ons dorp', 'lime', 60, [$bl, $br]),
-        generateCard(3, 'street', 6, 'Dorpstraat22', 'Ons dorp', 'lime', 60, [$br]),
-        generateCard(3, 'street', 5, 'Dorpstraat23', 'Ons dorp', 'none', 60),
-        generateCard(3, 'street', 4, 'Dorpstraat24', 'Ons dorp', 'lime', 60, [$bl, $br]),
-        generateCard(3, 'street', 3, 'Dorpstraat25', 'Ons dorp', 'none', 60),
-        generateCard(3, 'street', 2, 'Dorpstraat26', 'Ons dorp', 'green-dark', 60, [$bl, $br]),
-        generateCard(3, 'street', 1, 'Dorpstraat27', 'Ons dorp', 'green-dark', 60, [$br]),
+        generateCard(3, 'street', 9, 'Vondel Park', 'Ons dorp', 'ocean', 120, [$bl, $br]),
+        generateCard(3, 'chance', 8, 'Chance', 'Ons dorp', 'none'),
+        generateCard(3, 'street', 7, 'Alfa Road', 'Ons dorp', 'lime', 110, [$bl, $br]),
+        generateCard(3, 'street', 6, 'Gevel Road', 'Ons dorp', 'lime', 100, [$br]),
+        generateCard(3, 'street', 5, 'Osdorp', 'Ons dorp', 'none', 200),
+        generateCard(3, 'street', 4, 'Skihut avenue', 'Ons dorp', 'lime', 100, [$bl, $br]),
+        generateCard(3, 'chance', 3, 'Chance', 'Ons dorp', 'none'),
+        generateCard(3, 'street', 2, 'Pieso Road', 'Ons dorp', 'green-dark', 90, [$bl, $br]),
+        generateCard(3, 'street', 1, 'Westeinde', 'Ons dorp', 'green-dark', 60, [$br]),
 
-        generateCard(3, 'start', 0, 'Start', '', '', 0, [], 'card--big-br','big'),
+        generateCard(3, 'start', 0, 'Start', '', '', 0, [], 'property--big-br','big'),
     ]
 ];

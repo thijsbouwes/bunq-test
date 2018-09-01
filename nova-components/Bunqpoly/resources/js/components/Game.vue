@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="board-wrapper">
-            <div class="board">
+            <div class="board" id="board">
                 <div class="board__row">
                     <card
                         v-for="(column, index) in rows[0]"
@@ -87,6 +87,7 @@
             Nova.request().get('/nova-vendor/bunqpoly/properties')
                 .then(response => {
                     this.rows = response.data;
+                    this.initGame();
                 });
 
             Echo.private(`game.${this.game_id}`)
@@ -94,22 +95,33 @@
                     this.game = event.game;
                     console.log(event.game);
                 });
-
-            // start dice
-            dice_initialize(document.body);
-
-            Board.init();
-            Board.addPlayer(1, 'JG', 11);
-            Board.addPlayer(2, 'JG', 11);
-            Board.addPlayer(3, 'JG', 11);
-            Board.addPlayer(4, 'JG', 11);
-            Board.showMessage('Player  turn!');
         },
 
         methods: {
             isFirstOrSecond(index)
             {
                 return index == 1 || index == 2;
+            },
+
+            initGame()
+            {
+                let ref = this;
+                let checkDone = setInterval(function(){
+                    if($('#board').find('.property').length)
+                    {
+                        // start dice
+                        dice_initialize(document.body);
+
+                        Board.init();
+                        ref.game.users.map(user => {
+                            Board.addPlayer(1, user.name.charAt(0), 0, );
+                        });
+
+                        // Board.showMessage('Player  turn!');
+
+                        clearInterval(checkDone);
+                    }
+                }, 100);
             }
         },
 

@@ -29,17 +29,17 @@ class Board {
         });
     }
 
-    setPlayerCard(id, cardIndex)
+    setPlayerCard(id, propertyIndex)
     {
-        this.players[id].cardIndex = cardIndex;
+        this.players[id].propertyIndex = propertyIndex;
     }
 
-    addPlayer(id, name, cardIndex)
+    addPlayer(id, name, propertyIndex, color = 'blue')
     {
         this.players[id] = {
             name,
-            cardIndex,
-            element: $('<div class="board__player-icon board__player-icon--blue"><span>'+name+'</span></div>')
+            propertyIndex,
+            element: $('<div class="board__player-icon board__player-icon--' + color +'"><span>'+name+'</span></div>')
         };
 
 
@@ -53,12 +53,12 @@ class Board {
     {
         let player = this.players[id];
 
-        let newCardIndex = player.cardIndex + thrown;
+        let newCardIndex = player.propertyIndex + thrown;
         if(newCardIndex > 31)
         {
-            player.cardIndex = newCardIndex %  31;
+            player.propertyIndex = newCardIndex %  31;
         } else {
-            player.cardIndex = newCardIndex;
+            player.propertyIndex = newCardIndex;
         }
     }
 
@@ -67,24 +67,25 @@ class Board {
         let playersOnCard = {};
         for(let key in this.players) {
             let player = this.players[key];
-            if(player.cardIndex in playersOnCard === false)
+            if(player.propertyIndex in playersOnCard === false)
             {
-                playersOnCard[player.cardIndex] = [];
+                playersOnCard[player.propertyIndex] = [];
             }
-            playersOnCard[player.cardIndex].push(player);
+            playersOnCard[player.propertyIndex].push(player);
         }
 
-        for(let card in playersOnCard)
+        for(let property in playersOnCard)
         {
-            let $card = this.$board.find('.card[data-index=' + card + ']');
-            let players = playersOnCard[card];
+            let $property = this.$board.find('.property[data-index=' + property + ']');
+            let players = playersOnCard[property];
 
-            let rotated = $card.hasClass('card--rotated');
-            let left = ($card.offset().left - this.$board.offset().left) + ($card.width() / 2) - (this.playerWidth / 2) - 2;
-            let top = ($card.offset().top - this.$board.offset().top) + ($card.height() / 2) - (this.playerWidth / 2) - 2;
-            top += $card.hasClass('card--top') ? -20 : 0;
-            left += $card.hasClass('card--rotated-left') ? -20 : 0;
-            left += $card.hasClass('card--rotated-right') ? 20 : 0;
+            console.log($property.length);
+            let rotated = $property.hasClass('property--rotated');
+            let left = ($property.offset().left - this.$board.offset().left) + ($property.width() / 2) - (this.playerWidth / 2) - 2;
+            let top = ($property.offset().top - this.$board.offset().top) + ($property.height() / 2) - (this.playerWidth / 2) - 2;
+            top += $property.hasClass('property--top') ? -20 : 0;
+            left += $property.hasClass('property--rotated-left') ? -20 : 0;
+            left += $property.hasClass('property--rotated-right') ? 20 : 0;
 
 
             switch(players.length)
