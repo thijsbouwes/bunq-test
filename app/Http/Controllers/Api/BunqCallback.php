@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 
+use App\Events\GameChanged;
 use App\Game;
 use App\User;
 use Illuminate\Http\Request;
@@ -56,7 +57,7 @@ class BunqCallback
             'payment_status' => $paymentStatus
         ]);
 
-        
+        event(new GameChanged($game));
 
         return response()->json();
     }

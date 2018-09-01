@@ -3,8 +3,10 @@
 namespace Acme\Bunqpoly\Http\Controllers;
 
 use Acme\Bunqpoly\Http\Requests\CreateGameRequest;
+use App\Events\GameChanged;
 use App\Game;
 use App\Jobs\RequestPaymentForGame;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -29,9 +31,7 @@ class GamesController
             $request->validated()
         );
 
-        // Attach and request
-        $game->users()->attach($user->id);
-        RequestPaymentForGame::dispatch($user, $game);
+        $this->joinUserInGame($game, $user);
 
         return response()->json($game);
     }
@@ -50,10 +50,18 @@ class GamesController
             return response()->json([], Response::HTTP_BAD_REQUEST);
         }
 
-        // Attach and request
-        RequestPaymentForGame::dispatchNow($user, $game);
-        $game->users()->attach($user->id);
+        $this->joinUserInGame($game, $user);
 
         return response()->json();
+    }
+
+    private function joinUserInGame(Game $game, User $user)
+    {
+        // Attach and request
+        $game->users()->attach($user->id);
+        RequestPaymentForGame::dispatch($user, $game);
+
+        // Sent event
+        event(new GameChanged($game));
     }
 }
