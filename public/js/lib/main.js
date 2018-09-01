@@ -23,6 +23,7 @@ function dice_initialize(container) {
         callback();
     }
 
+
     function notation_getter() {
         return $t.dice.parse_notation('2d6');
     }

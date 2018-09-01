@@ -5,7 +5,7 @@
     </head>
     <body>
     <div class="board-wrapper">
-        <div class="board">
+        <div class="board" id="board">
             @foreach(\Illuminate\Support\Facades\Config::get('bunqpoly.cards.rows') as $index => $row)
 
                 @if($index === 0)
@@ -14,9 +14,11 @@
                     <div class="board__row board__row--big">
                         <div class="board__col board__col--left">
                 @elseif($index === 2)
+                    <div class="board__middle">
                         <div class="board__logo">
                             @include('svg/logo')
                         </div>
+                    </div>
                         <div class="board__col board__col--right">
                 @elseif($index === 3)
                     <div class="board__row">
@@ -30,22 +32,6 @@
                                 </div>
 
                                 <div class="card__content {{ (!key_exists('border', $card) || empty($card['border'])) ? '' : implode(' ', $card['border']) }}">
-                                    @if($card['index'] === 1)
-                                        <div class="card__player-wrapper">
-                                            <div class="card__player-icon card__player-icon--green">
-                                                <span>JG</span>
-                                            </div>
-                                            <div class="card__player-icon card__player-icon--blue">
-                                                <span>KR</span>
-                                            </div>
-                                            <div class="card__player-icon card__player-icon--red">
-                                                <span>KR</span>
-                                            </div>
-                                            <div class="card__player-icon card__player-icon--orange">
-                                                <span>KR</span>
-                                            </div>
-                                        </div>
-                                    @endif
                                     <div class="card__svg">
                                         @include('svg/card/'.$card['index'], ['name' => $card['name'], 'city' => $card['city'], 'price' => $card['price']])
                                     </div>
@@ -74,7 +60,7 @@
         </div>
     </div>
 
-        <div id="dice" class="dice"></div>
+        {{--<div id="dice" class="dice"></div>--}}
 
 
 
