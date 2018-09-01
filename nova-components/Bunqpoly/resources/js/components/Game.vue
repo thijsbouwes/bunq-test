@@ -2,16 +2,8 @@
     <div>
         <div class="game-menu">
             <div class="game-menu__players">
-                <div class="game-menu__player game-menu__player--blue">
-                    <span class="game-menu__title">Jeroen Groenveld</span>
-                    <span class="game-menu__money">&euro; 1500,-</span>
-                </div>
-                <div class="game-menu__player game-menu__player--green game-menu__player--disabled">
-                    <span class="game-menu__title">Jeroen Groenveld</span>
-                    <span class="game-menu__money">&euro; 1500,-</span>
-                </div>
-                <div class="game-menu__player game-menu__player--blue-dark game-menu__player--disabled">
-                    <span class="game-menu__title">Jeroen Groenveld</span>
+                <div class="game-menu__player game-menu__player--blue" v-for="user in game.users">
+                    <span class="game-menu__title">{{ user.name }}</span>
                     <span class="game-menu__money">&euro; 1500,-</span>
                 </div>
             </div>
@@ -135,8 +127,23 @@
                     this.initGame();
                 });
 
+            Nova.request().get('/nova-vendor/bunqpoly/game/' + this.game_id + '/turn')
+                .then(response => {
+                    console.log(response);
+                });
+
             Echo.private(`game.${this.game_id}`)
                 .listen('.game.changed', (event) => {
+                    this.game = event.game;
+                    console.log(event.game);
+                })
+                .listen('game.user.move', (event) => {
+                    console.log("A user is moving");
+                    this.game = event.game;
+                    console.log(event.game);
+                })
+                .listen('game.user.turn', (event) => {
+                    console.log("Your turn user is moving");
                     this.game = event.game;
                     console.log(event.game);
                 });

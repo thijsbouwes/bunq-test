@@ -26,6 +26,6 @@ Route::get('/properties', PropertyController::class.'@index');
 
 Route::group(['prefix' => 'game'], function() {
     Route::get('/{game}/throw-dices', PlayGameController::class.'@throwDices');
-
+    Route::get('/{game}/turn', PlayGameController::class.'@turn')
 //    Route::get('/{game}/buy-property', Play)
 });
