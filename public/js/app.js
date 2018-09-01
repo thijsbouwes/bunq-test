@@ -47441,15 +47441,15 @@ var Board = function () {
             }
 
             for (var card in playersOnCard) {
-                var $card = this.$board.find('.card[data-index=' + card + ']');
+                var $card = this.$board.find('.property[data-index=' + card + ']');
                 var players = playersOnCard[card];
 
-                var rotated = $card.hasClass('card--rotated');
+                var rotated = $card.hasClass('property--rotated');
                 var left = $card.offset().left - this.$board.offset().left + $card.width() / 2 - this.playerWidth / 2 - 2;
                 var top = $card.offset().top - this.$board.offset().top + $card.height() / 2 - this.playerWidth / 2 - 2;
-                top += $card.hasClass('card--top') ? -20 : 0;
-                left += $card.hasClass('card--rotated-left') ? -20 : 0;
-                left += $card.hasClass('card--rotated-right') ? 20 : 0;
+                top += $card.hasClass('property--top') ? -20 : 0;
+                left += $card.hasClass('property--rotated-left') ? -20 : 0;
+                left += $card.hasClass('property--rotated-right') ? 20 : 0;
 
                 switch (players.length) {
                     case 1:

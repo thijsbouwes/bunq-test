@@ -133,15 +133,15 @@ class Board
 
         for(let card in playersOnCard)
         {
-            let $card = this.$board.find('.card[data-index=' + card + ']');
+            let $card = this.$board.find('.property[data-index=' + card + ']');
             let players = playersOnCard[card];
 
-            let rotated = $card.hasClass('card--rotated');
+            let rotated = $card.hasClass('property--rotated');
             let left = ($card.offset().left - this.$board.offset().left) + ($card.width() / 2) - (this.playerWidth / 2) - 2;
             let top = ($card.offset().top - this.$board.offset().top) + ($card.height() / 2) - (this.playerWidth / 2) - 2;
-            top += $card.hasClass('card--top') ? -20 : 0;
-            left += $card.hasClass('card--rotated-left') ? -20 : 0;
-            left += $card.hasClass('card--rotated-right') ? 20 : 0;
+            top += $card.hasClass('property--top') ? -20 : 0;
+            left += $card.hasClass('property--rotated-left') ? -20 : 0;
+            left += $card.hasClass('property--rotated-right') ? 20 : 0;
 
 
             switch(players.length)
