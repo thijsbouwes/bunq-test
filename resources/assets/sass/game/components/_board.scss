@@ -36,6 +36,15 @@
 		flex-direction: column;
 	}
 
+	&__middle
+	{
+		z-index: 9999;
+		flex:1;
+		justify-content: center;
+		display: flex;
+		background-color: $bunq-color-gray;
+	}
+
 	&__logo
 	{
 		align-self: center;

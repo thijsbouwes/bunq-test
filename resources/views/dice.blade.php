@@ -14,9 +14,11 @@
                     <div class="board__row board__row--big">
                         <div class="board__col board__col--left">
                 @elseif($index === 2)
+                    <div class="board__middle">
                         <div class="board__logo">
                             @include('svg/logo')
                         </div>
+                    </div>
                         <div class="board__col board__col--right">
                 @elseif($index === 3)
                     <div class="board__row">
@@ -58,7 +60,7 @@
         </div>
     </div>
 
-        <div id="dice" class="dice"></div>
+        {{--<div id="dice" class="dice"></div>--}}
 
 
 

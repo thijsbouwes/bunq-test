@@ -5,6 +5,7 @@
 	border-radius: 0;
 	border: 0;
 	display:flex;
+	position: relative;
 
 	&--small
 	{
@@ -111,7 +112,7 @@
 		&--rotated
 		{
 			width: $card-header-height;
-			height: $card-small-height;
+			height: $card-small-width;
 			min-width: $card-header-height;
 			max-width: $card-header-height;
 			min-height: unset;
@@ -124,7 +125,6 @@
 				width: $card-small-width;
 			}
 		}
-
 
 		@each $color, $hex in $bunq-colors {
 			&--#{$color}
