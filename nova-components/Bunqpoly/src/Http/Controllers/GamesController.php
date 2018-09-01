@@ -4,6 +4,7 @@ namespace Acme\Bunqpoly\Http\Controllers;
 
 use Acme\Bunqpoly\Http\Requests\CreateGameRequest;
 use App\Events\GameChanged;
+use App\Events\GameUserTurn;
 use App\Game;
 use App\Jobs\RequestPaymentForGame;
 use App\User;
@@ -58,8 +59,10 @@ class GamesController
     public function start(Game $game)
     {
         $game->update(['status' => 'playing']);
+        $userTurn = $game->getNextUser();
 
         event(new GameChanged($game, 'status'));
+        event(new GameUserTurn($game, $userTurn));
     }
 
     private function joinUserInGame(Game $game, User $user)

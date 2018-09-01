@@ -30,4 +30,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Game::class)
             ->withPivot(['payment_reference', 'payment_status']);
     }
+
+    public function moves()
+    {
+        return $this->hasMany(Move::class);
+    }
 }
