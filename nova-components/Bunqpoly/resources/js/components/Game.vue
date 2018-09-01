@@ -2,7 +2,7 @@
     <div>
         <div class="flex justify-between">
             <div class="relative h-9 mb-6">
-                <heading class="mb-6">Join lobby {{ this.game.name }} <span class="text-sm">(id: {{ this.game_id }}) ${{ this.game.price }}</span></heading>
+                <heading class="mb-6">{{ this.game.name }} <span class="text-sm">(id: {{ this.game_id }}) ${{ this.game.price }}</span></heading>
             </div>
         </div>
 
