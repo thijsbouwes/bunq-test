@@ -15,7 +15,7 @@ class PropertyController
 {
     public function index()
     {
-        $properties = Property::orderBy('index')->get();
+        $properties = Property::all();
         $rows = $properties->groupBy('row');
 
         return response()->json($rows);

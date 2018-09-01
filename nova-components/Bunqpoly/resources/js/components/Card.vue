@@ -1,10 +1,10 @@
 <template>
     <div
-        :class="['card ' + column.classes, {'card--big': big, 'card--small': !big, 'card--small-rotated': cardSmallRotated, 'card--top': cardTop, 'card--rotated-left': cardLeft, 'card--rotated-right': cardRight}]"
+        :class="['card ' + column.classes + ' test', {'card--big': big, 'card--small': !big, 'card--small-rotated': cardSmallRotated, 'card--top': cardTop, 'card--rotated-left': cardLeft, 'card--rotated-right': cardRight}]"
     >
         <div
-            v-if="big"
-            :class="['card__header card__header--' + column.color, {'card__header--rotated': big}]"
+            v-if="!big"
+            :class="['card__header card__header--' + column.color, {'card__header--rotated': cardSmallRotated}]"
         >
             <div :class="['card__content ' + column.border]" >
                 <div class="card__player-wrapper" v-if="column.index == 1">
@@ -35,23 +35,23 @@
 </template>
 <script>
     export default {
-        props: ['column'],
+        props: ['column', 'rowIndex'],
 
         computed: {
             big() {
                 return this.column.size == 'big';
             },
             cardSmallRotated() {
-                return this.column.index == 1 || this.column.index == 2;
+                return this.rowIndex == 1 || this.rowIndex == 2;
             },
             cardTop() {
-                return this.column.index == 0;
+                return this.rowIndex == 0;
             },
             cardLeft() {
-                return this.column.index == 1;
+                return this.rowIndex == 1;
             },
             cardRight() {
-                return this.column.index == 2;
+                return this.rowIndex == 2;
             }
         }
     }

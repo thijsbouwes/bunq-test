@@ -8,43 +8,45 @@
 
         <div class="board-wrapper">
             <div class="board">
-                <template
-                    v-for="(row, index) in rows"
-                >
-                    <div class="board__row" v-if="index == 0">
+
+                    <div class="board__row">
                         <card
-                            v-for="(column, index) in row"
+                            v-for="(column, index) in rows[0]"
                             :column="column"
+                            :rowIndex="0"
                             :key="index">
                         </card>
                     </div>
-                    <div class="board__row board__row--big" v-else-if="index == 1">
+                    <div class="board__row board__row--big">
                         <div class="board__col board__col--left">
                             <card
-                                v-for="(column, index) in row"
+                                v-for="(column, index) in rows[1]"
                                 :column="column"
+                                :rowIndex="1"
+                                :key="index">
+                            </card>
+                        </div>
+                        <div class="board__col board__col--right">
+                            <div class="board__logo" >
+
+                            </div>
+                            <card
+                                v-for="(column, index) in rows[2]"
+                                :column="column"
+                                :rowIndex="2"
                                 :key="index">
                             </card>
                         </div>
                     </div>
-                    <div class="board__col board__col--right" v-else-if="index == 2">
-                        <div class="board__logo" >
-                            <span>svg</span>
-                        </div>
+                    <div class="board__row">
                         <card
-                            v-for="(column, index) in row"
+                            v-for="(column, index) in rows[3]"
                             :column="column"
+                            :rowIndex="3"
                             :key="index">
                         </card>
                     </div>
-                    <div class="board__row" v-else-if="index == 3">
-                        <card
-                            v-for="(column, index) in row"
-                            :column="column"
-                            :key="index">
-                        </card>
-                    </div>
-                </template>
+
             </div>
         </div>
 
@@ -65,7 +67,12 @@
                     name: "",
                     users: []
                 },
-                rows: [],
+                rows: [
+                    [],
+                    [],
+                    [],
+                    []
+                ],
                 is_creator: false,
             }
         },
@@ -95,7 +102,10 @@
         },
 
         methods: {
-
+            isFirstOrSecond(index)
+            {
+                return index == 1 || index == 2;
+            }
         },
 
     }
