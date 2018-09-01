@@ -17,7 +17,6 @@ class BunqCallback
     public function log(Request $request)
     {
         $data = $request->all();
-        Log::info(json_encode($data));
 
         if (key_exists('NotificationUrl', $data) === false) {
             return;
@@ -45,8 +44,6 @@ class BunqCallback
                 break;
         }
 
-        Log::error($paymentStatus);
-
         $user = User::whereHas('games', function($query) use ($id) {
             $query->where('payment_reference', $id);
         })->firstOrFail();
@@ -58,6 +55,8 @@ class BunqCallback
         $user->games()->updateExistingPivot($game->id, [
             'payment_status' => $paymentStatus
         ]);
+
+        
 
         return response()->json();
     }

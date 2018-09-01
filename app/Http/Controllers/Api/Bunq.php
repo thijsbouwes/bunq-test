@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thijs
- * Date: 1/09/18
- * Time: 1:48 AM
- */
 
 namespace App\Http\Controllers\Api;
 
@@ -14,7 +8,6 @@ use App\Http\Controllers\Controller;
 use bunq\Context\ApiContext;
 use bunq\Context\BunqContext;
 use bunq\Exception\BadRequestException;
-use bunq\Model\Generated\Endpoint\MonetaryAccountBank;
 use bunq\Model\Generated\Endpoint\RequestInquiry;
 use bunq\Model\Generated\Endpoint\UserPerson;
 use bunq\Model\Generated\Object\Amount;
