@@ -52116,6 +52116,27 @@ module.exports = function transformData(data, headers, fns) {
 
 "use strict";
 
+<<<<<<< HEAD
+=======
+    board.showMessage('Player  turn!');
+
+    // let counter = 1;
+    // setInterval(function(){
+    //
+    //     for(let i = 0; i < 4;i++)
+    //     {
+    //         let thrown = Math.floor((Math.random() * 6) + 1);
+    //         board.updatePayerLocation(i + 1 , thrown);
+    //     }
+    //
+    //     board.updatePlayerLocations();
+    //     counter++;
+    //     if(counter > 31)
+    //     {
+    //         counter = 0;
+    //     }
+    // }, 1000);
+>>>>>>> jeroen
 
 /**
  * Determines whether the specified URL is absolute
@@ -52135,7 +52156,46 @@ module.exports = function isAbsoluteURL(url) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 "use strict";
+=======
+    _createClass(Board, [{
+        key: 'showMessage',
+        value: function showMessage(message) {
+            var $message = $('<div class="board__message"><span>' + message + '</span></div>');
+            this.$board.append($message);
+            $message.find('span').animate({
+                top: this.$board.height() / 2 - $message.find('span').height() / 2 + 'px'
+            }, {
+                duration: 500,
+                specialEasing: {
+                    'top': 'swing'
+                },
+                complete: function complete() {
+                    setTimeout(function () {
+                        $message.find('span').animate({
+                            top: '-200px'
+                        }, 500, function () {
+                            $message.remove();
+                        });
+                    }, 2000);
+                }
+            });
+        }
+    }, {
+        key: 'setPlayerCard',
+        value: function setPlayerCard(id, cardIndex) {
+            this.players[id].cardIndex = cardIndex;
+        }
+    }, {
+        key: 'addPlayer',
+        value: function addPlayer(id, name, cardIndex) {
+            this.players[id] = {
+                name: name,
+                cardIndex: cardIndex,
+                element: $('<div class="board__player-icon board__player-icon--blue"><span>' + name + '</span></div>')
+            };
+>>>>>>> jeroen
 
 
 /**

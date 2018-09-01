@@ -5,6 +5,13 @@ import { faSpinner, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // import SvgIcon from "./components/SvgIcon";
 
+try {
+    window.$ = window.jQuery = require('jquery');
+    require('bootstrap');
+} catch (e) {}
+
+require('./walk');
+
 Nova.booting((Vue, router) => {
     Vue.component('font-awesome-icon', FontAwesomeIcon);
 

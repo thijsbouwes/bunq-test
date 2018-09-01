@@ -10578,6 +10578,7 @@ body {
 }
 
 .board__middle {
+  position: relative;
   z-index: 9999;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -10598,6 +10599,42 @@ body {
 
 .board__logo svg {
   width: 250px;
+}
+
+.board__chancecards {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+  position: absolute;
+  left: 110px;
+  top: 130px;
+}
+
+.board__chancecards svg {
+  width: 170px;
+}
+
+.board__message {
+  z-index: 99999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.board__message span {
+  top: -200px;
+  position: absolute;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 1rem;
 }
 
 .board__player-icon {
