@@ -55,6 +55,13 @@ class GamesController
         return response()->json();
     }
 
+    public function start(Game $game)
+    {
+        $game->update(['status' => 'playing']);
+
+        event(new GameChanged($game, 'status'));
+    }
+
     private function joinUserInGame(Game $game, User $user)
     {
         // Attach and request

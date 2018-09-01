@@ -18,5 +18,6 @@ Route::get('/games', GamesController::class.'@index');
 Route::post('/games', GamesController::class.'@store');
 Route::get('/games/{game}', GamesController::class.'@show');
 Route::post('/games/{game}/join', GamesController::class.'@join');
+Route::post('/games/{game}/start', GamesController::class.'@start');
 
 //Route::

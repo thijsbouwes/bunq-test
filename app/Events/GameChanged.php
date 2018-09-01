@@ -17,15 +17,16 @@ class GameChanged implements ShouldBroadcastNow
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $game;
-
+    private $type;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Game $game)
+    public function __construct(Game $game, $type = "default")
     {
         $this->game = $game;
+        $this->type = $type;
     }
 
     /**
@@ -45,6 +46,6 @@ class GameChanged implements ShouldBroadcastNow
      */
     public function broadcastAs()
     {
-        return 'game.changed';
+        return 'game.'.$this->type.'.changed';
     }
 }

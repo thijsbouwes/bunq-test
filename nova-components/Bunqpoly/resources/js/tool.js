@@ -30,6 +30,11 @@ Nova.booting((Vue, router) => {
             name: 'bunqpoly-join',
             path: '/bunqpoly/join/:id',
             component: require('./components/GameJoin'),
+        },
+        {
+            name: 'bunqpoly-game',
+            path: '/bunqpoly/game/:id',
+            component: require('./components/Game'),
         }
     ])
 })

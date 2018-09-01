@@ -5,7 +5,7 @@
                 <heading class="mb-6">Join lobby {{ this.game.name }} <span class="text-sm">(id: {{ this.game_id }}) ${{ this.game.price }}</span></heading>
             </div>
             <span class="ml-auto mb-6">
-                <button type="submit" class="btn btn-default btn-primary" :disabled="usersPayed" :class="{ 'opacity-50 cursor-not-allowed': usersPayed }">Start Game</button>
+                <button type="submit" @click="startGame()" class="btn btn-default btn-primary" :disabled="usersPayed" :class="{ 'opacity-50 cursor-not-allowed': usersPayed }">Start Game</button>
             </span>
         </div>
 
@@ -64,9 +64,11 @@
                 });
 
             Echo.private(`game.${this.game_id}`)
-                .listen('.game.changed', (event) => {
+                .listen('.game.default.changed', (event) => {
                     this.game = event.game;
-                    console.log(event.game);
+                })
+                .listen('.game.status.changed', (event) => {
+                    this.handelStatusChange(event.game);
                 });
         },
 
@@ -79,6 +81,19 @@
                         return "times";
                     default:
                         return "spinner";
+                }
+            },
+
+            startGame() {
+                Nova.request().post('/nova-vendor/bunqpoly/games/' + this.game_id + '/start')
+                    .then(response => {
+                        console.log("starting game");
+                    });
+            },
+
+            handelStatusChange(game) {
+                if (game.status === 'playing') {
+                    this.$router.push({ name: 'bunqpoly-game', params: { id: game.id }});
                 }
             }
         },
