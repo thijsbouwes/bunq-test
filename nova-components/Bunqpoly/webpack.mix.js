@@ -1,5 +1,8 @@
 let mix = require('laravel-mix')
 
+mix.setPublicPath('./');
+mix.options({ processCssUrls: false });
+
 mix.js('resources/js/tool.js', 'dist/js/app.js').scripts(
     [
         'dist/js/app.js',

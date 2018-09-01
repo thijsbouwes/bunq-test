@@ -1,5 +1,29 @@
 <template>
     <div>
+        <div class="game-menu">
+            <div class="game-menu__players">
+                <div class="game-menu__player game-menu__player--blue">
+                    <span class="game-menu__title">Jeroen Groenveld</span>
+                    <span class="game-menu__money">&euro; 1500,-</span>
+                </div>
+                <div class="game-menu__player game-menu__player--green game-menu__player--disabled">
+                    <span class="game-menu__title">Jeroen Groenveld</span>
+                    <span class="game-menu__money">&euro; 1500,-</span>
+                </div>
+                <div class="game-menu__player game-menu__player--blue-dark game-menu__player--disabled">
+                    <span class="game-menu__title">Jeroen Groenveld</span>
+                    <span class="game-menu__money">&euro; 1500,-</span>
+                </div>
+            </div>
+            <div class="game-menu__buttons">
+                <button type="button" class="game-menu__button game-menu__button--swipe">Swipe to throw</button>
+                <div class="game-menu__buttons-50">
+                    <button type="button" class="game-menu__button game-menu__button--buy">Buy</button>
+                    <button type="button" class="game-menu__button game-menu__button--next">Next</button>
+                </div>
+            </div>
+        </div>
+
         <div class="board-wrapper">
             <div class="board" id="board">
                 <div class="board__row">
@@ -21,9 +45,30 @@
                             :key="index">
                         </card>
                     </div>
-                    <div class="board__logo" >
-                        <img src="/images/game/logo.png">
+                    <div class="board__middle">
+                        <div class="board__chancecards" id="chancecards">
+                            <img src="/images/game/chancecards.png">
+                        </div>
+                        <div class="board__logo" >
+                            <img src="/images/game/logo.png">
+                        </div>
+
+                        <div class="flip-container">
+                            <div class="flipper">
+                                <div class="front chancecard">
+                                    <!-- front content -->
+                                </div>
+                                <div class="back chancecard">
+                                    <span class="chancecard__title">CHANCE</span>
+                                    <p class="chancecard__message">You were drunk yesterday go to the skihut now to pay the bil of &euro; 150.</p>
+                                    <button type="button" class="btn btn-primary chancecard__button">Oke</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+
                     <div class="board__col board__col--right">
                         <card
                             v-for="(column, index) in rows[2]"

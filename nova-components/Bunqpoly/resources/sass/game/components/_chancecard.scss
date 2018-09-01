@@ -1,0 +1,96 @@
+.chancecard
+{
+	height:400px;
+	width: 230px;
+	border-radius: 1rem;
+	background-color:black;
+	padding: 1.25rem;
+	display:flex;
+	justify-content: space-between;
+	flex-direction:column;
+	box-shadow: 4px 4px 11px -5px #000;
+
+	&__title
+	{
+		margin-top:1.5rem;
+		text-align:center;
+		color: white;
+		font-size: 2rem;
+		font-weight: 600;
+	}
+
+	&__message
+	{
+		color:white;
+		font-size: 1.25rem;
+		line-height:1.5rem;
+	}
+
+	&__button
+	{
+		border: 0;
+		border-radius: 4px;
+		color: white;
+		background-color: #FF8733;
+		width: 105px;
+		padding:1rem;
+		margin:0 auto;
+
+		&:hover
+		{
+			background-color: #FF8733;
+			opacity: 0.9;
+		}
+	}
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	position: absolute;
+	right: 60px;
+	align-self:center;
+
+	transition: right 1s, transform 1s;
+
+	z-index:999999999;
+	perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	height:400px;
+	width: 230px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	background-image: url('/images/game/chancecard_back.png');
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}

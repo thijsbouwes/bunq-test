@@ -1,0 +1,87 @@
+.game-menu
+{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 13.75rem;
+	z-index: 99999999999;
+
+	&__players
+	{
+		margin-bottom: .375rem;
+	}
+
+	&__player
+	{
+		padding: 1.25rem .75rem;
+
+		@each $color, $hex in $bunq-colors {
+			&--#{$color} {
+				background-color: $hex;
+			}
+			&--none {
+				background-color: white;
+			}
+		}
+
+		&--disabled
+		{
+			opacity: .25;
+		}
+	}
+
+	&__title, &__money
+	{
+		display:block;
+		padding: .25rem;
+		color: white;
+	}
+
+	&__button
+	{
+		border: 0;
+		border-radius: 0px;
+		color: white;
+		padding: .75rem 1rem;
+		background-color: #FF8733;
+		transition: opacity .5s;
+
+		&--buy, &--next
+		{
+			cursor:pointer;
+
+			&:hover
+			{
+				opacity: .8;
+			}
+		}
+
+		&--swipe
+		{
+			display: block;
+			width: 100%;
+			margin-bottom: .375rem;
+			cursor: default;
+		}
+
+		&--buy
+		{
+			margin-right: .1875rem;
+		}
+
+		&--next
+		{
+			margin-left: .1875rem;
+		}
+	}
+
+	&__buttons-50
+	{
+		display:flex;
+
+		button
+		{
+			flex:1;
+		}
+	}
+}
