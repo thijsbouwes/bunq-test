@@ -10524,6 +10524,7 @@ a.text-dark:focus {
 }
 
 .board__middle {
+  position: relative;
   z-index: 9999;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -10544,6 +10545,18 @@ a.text-dark:focus {
 
 .board__logo svg {
   width: 250px;
+}
+
+.board__chancecards {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+  position: absolute;
+  left: 110px;
+  top: 130px;
+}
+
+.board__chancecards svg {
+  width: 170px;
 }
 
 .board__player-icon {

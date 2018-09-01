@@ -15,6 +15,9 @@
                         <div class="board__col board__col--left">
                 @elseif($index === 2)
                     <div class="board__middle">
+                        <div class="board__chancecards">
+                            @include('svg/chancecards')
+                        </div>
                         <div class="board__logo">
                             @include('svg/logo')
                         </div>

@@ -38,6 +38,7 @@
 
 	&__middle
 	{
+		position: relative;
 		z-index: 9999;
 		flex:1;
 		justify-content: center;
@@ -52,6 +53,19 @@
 		svg
 		{
 			width:250px;
+		}
+	}
+
+	&__chancecards
+	{
+		transform: rotate(10deg);
+		position: absolute;
+		left: 110px;
+		top: 130px;
+
+		svg
+		{
+			width: 170px;
 		}
 	}
 
