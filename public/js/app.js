@@ -15874,23 +15874,7 @@ $(function () {
     board.addPlayer(4, 'JG', 11);
     // board.addPlayer(2, 'JG', 11);
 
-    // let counter = 1;
-    // setInterval(function(){
-    //
-    //     for(let i = 0; i < 4;i++)
-    //     {
-    //         let thrown = Math.floor((Math.random() * 6) + 1);
-    //         board.updatePayerLocation(i + 1 , thrown);
-    //     }
-    //
-    //     board.updatePlayerLocations();
-    //     counter++;
-    //     if(counter > 31)
-    //     {
-    //         counter = 0;
-    //     }
-    // }, 1000);
-
+    board.showMessage('Player  turn!');
 });
 
 var Board = function () {
@@ -15903,6 +15887,29 @@ var Board = function () {
     }
 
     _createClass(Board, [{
+        key: 'showMessage',
+        value: function showMessage(message) {
+            var $message = $('<div class="board__message"><span>' + message + '</span></div>');
+            this.$board.append($message);
+            $message.find('span').animate({
+                top: this.$board.height() / 2 - $message.find('span').height() / 2 + 'px'
+            }, {
+                duration: 500,
+                specialEasing: {
+                    'top': 'swing'
+                },
+                complete: function complete() {
+                    setTimeout(function () {
+                        $message.find('span').animate({
+                            top: '-200px'
+                        }, 500, function () {
+                            $message.remove();
+                        });
+                    }, 2000);
+                }
+            });
+        }
+    }, {
         key: 'setPlayerCard',
         value: function setPlayerCard(id, cardIndex) {
             this.players[id].cardIndex = cardIndex;
@@ -15946,15 +15953,15 @@ var Board = function () {
             }
 
             for (var card in playersOnCard) {
-                var $card = this.$board.find('.card[data-index=' + card + ']');
+                var $card = this.$board.find('.property[data-index=' + card + ']');
                 var players = playersOnCard[card];
 
-                var rotated = $card.hasClass('card--rotated');
+                var rotated = $card.hasClass('property--rotated');
                 var left = $card.offset().left - this.$board.offset().left + $card.width() / 2 - this.playerWidth / 2 - 2;
                 var top = $card.offset().top - this.$board.offset().top + $card.height() / 2 - this.playerWidth / 2 - 2;
-                top += $card.hasClass('card--top') ? -20 : 0;
-                left += $card.hasClass('card--rotated-left') ? -20 : 0;
-                left += $card.hasClass('card--rotated-right') ? 20 : 0;
+                top += $card.hasClass('property--top') ? -20 : 0;
+                left += $card.hasClass('property--rotated-left') ? -20 : 0;
+                left += $card.hasClass('property--rotated-right') ? 20 : 0;
 
                 switch (players.length) {
                     case 1:
@@ -52116,27 +52123,6 @@ module.exports = function transformData(data, headers, fns) {
 
 "use strict";
 
-<<<<<<< HEAD
-=======
-    board.showMessage('Player  turn!');
-
-    // let counter = 1;
-    // setInterval(function(){
-    //
-    //     for(let i = 0; i < 4;i++)
-    //     {
-    //         let thrown = Math.floor((Math.random() * 6) + 1);
-    //         board.updatePayerLocation(i + 1 , thrown);
-    //     }
-    //
-    //     board.updatePlayerLocations();
-    //     counter++;
-    //     if(counter > 31)
-    //     {
-    //         counter = 0;
-    //     }
-    // }, 1000);
->>>>>>> jeroen
 
 /**
  * Determines whether the specified URL is absolute
@@ -52156,46 +52142,7 @@ module.exports = function isAbsoluteURL(url) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 "use strict";
-=======
-    _createClass(Board, [{
-        key: 'showMessage',
-        value: function showMessage(message) {
-            var $message = $('<div class="board__message"><span>' + message + '</span></div>');
-            this.$board.append($message);
-            $message.find('span').animate({
-                top: this.$board.height() / 2 - $message.find('span').height() / 2 + 'px'
-            }, {
-                duration: 500,
-                specialEasing: {
-                    'top': 'swing'
-                },
-                complete: function complete() {
-                    setTimeout(function () {
-                        $message.find('span').animate({
-                            top: '-200px'
-                        }, 500, function () {
-                            $message.remove();
-                        });
-                    }, 2000);
-                }
-            });
-        }
-    }, {
-        key: 'setPlayerCard',
-        value: function setPlayerCard(id, cardIndex) {
-            this.players[id].cardIndex = cardIndex;
-        }
-    }, {
-        key: 'addPlayer',
-        value: function addPlayer(id, name, cardIndex) {
-            this.players[id] = {
-                name: name,
-                cardIndex: cardIndex,
-                element: $('<div class="board__player-icon board__player-icon--blue"><span>' + name + '</span></div>')
-            };
->>>>>>> jeroen
 
 
 /**
@@ -52212,24 +52159,11 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 
-<<<<<<< HEAD
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-=======
-            for (var card in playersOnCard) {
-                var $card = this.$board.find('.property[data-index=' + card + ']');
-                var players = playersOnCard[card];
-
-                var rotated = $card.hasClass('property--rotated');
-                var left = $card.offset().left - this.$board.offset().left + $card.width() / 2 - this.playerWidth / 2 - 2;
-                var top = $card.offset().top - this.$board.offset().top + $card.height() / 2 - this.playerWidth / 2 - 2;
-                top += $card.hasClass('property--top') ? -20 : 0;
-                left += $card.hasClass('property--rotated-left') ? -20 : 0;
-                left += $card.hasClass('property--rotated-right') ? 20 : 0;
->>>>>>> jeroen
 
 
 var Cancel = __webpack_require__(11);
